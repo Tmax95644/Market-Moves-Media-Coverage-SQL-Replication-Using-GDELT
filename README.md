@@ -1,21 +1,17 @@
-Market News Coverage Asymmetry — SQL Replication (GDELT)
-Project Context
-
 This project is a SQL-based replication of the following Python analysis:
 
 🔗 **Python Project:**  
 [Market News Coverage Across Bull and Bear Market Conditions — Python / MediaCloud](https://github.com/Tmax95644/Market-News-Asymmetry-Analysis)
 
-
-The purpose of this project is to test whether the original findings remain consistent when:
+The purpose of this project is to validate whether the original findings remain consistent when:
 
 Using an independent global news dataset
 
-Performing the full analysis entirely in SQL
+Performing the analysis entirely in SQL
 
-Replicating the same classification logic and thresholds
+Replicating the same classification logic and return thresholds
 
-This approach mirrors real-world analytical validation, where results are tested across tools and data sources.
+This mirrors real-world analytical validation, where results are tested across tools, workflows, and data sources.
 
 Research Question
 
@@ -26,7 +22,7 @@ Market Data
 
 S&P 500 daily price data
 
-Daily returns calculated using the same open-to-close methodology as the Python analysis
+Daily returns calculated using the same open-to-close percentage change methodology as the Python analysis
 
 Small market datasets are included in the repository
 
@@ -51,32 +47,41 @@ Window functions
 Date-based filtering and classification
 
 Methodology
+1. Market Day Classification
 
-Classified trading days using symmetric return thresholds (e.g. ±3%)
+Trading days were classified using symmetric return thresholds:
 
-Aggregated daily article counts for:
+Large Loss: ≤ −3%
+
+Large Gain: ≥ +3%
+
+2. Coverage Aggregation
+
+Daily article counts were aggregated for:
 
 Large positive market moves
 
 Large negative market moves
 
-Compared mean and median article volumes across categories
+Both mean and median article volumes were calculated
 
-Applied identical classification logic to the Python analysis to ensure consistency
+3. Consistency with Python Analysis
 
-Structured queries to allow full reproducibility once data is loaded
+Identical return definitions, thresholds, and grouping logic were applied
+
+Queries were structured to allow full reproducibility once data is loaded
 
 Key Findings
 
 Results were directionally consistent with the Python / MediaCloud analysis
 
-Both large gains and large losses attracted significantly more coverage than normal trading days
+Both large gains and large losses attracted significantly more coverage than typical trading days
 
 Extreme positive and negative market moves received similar levels of media attention
 
 Conclusion
 
-This SQL replication strengthens confidence in the original analysis by demonstrating that the findings are:
+This SQL replication strengthens confidence in the original findings by demonstrating that the results are:
 
 Tool-independent (Python vs SQL)
 
@@ -84,4 +89,4 @@ Dataset-independent (MediaCloud vs GDELT)
 
 Reproducible using standard SQL workflows
 
-The results suggest that market extremity, rather than direction alone, is a primary driver of financial news coverage.
+Overall, the evidence suggests that market extremity, rather than direction alone, is a primary driver of financial news coverage.
