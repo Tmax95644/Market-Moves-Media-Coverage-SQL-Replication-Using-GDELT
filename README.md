@@ -52,4 +52,15 @@ Do large negative market moves receive more news coverage than similarly large p
 
 ## Key Findings
 
-- Results were **directionally consistent**
+- Results were **directionally consistent** with the Python / MediaCloud analysis
+- Large market moves attracted more coverage than typical days
+- Positive and negative extremes showed **similar levels of attention**
+
+---
+
+## Conclusion
+
+This SQL replication strengthens confidence in the original findings by demonstrating that the results are:
+- Not tool-specific
+- Not dataset-specific
+- Reproducible using standard SQL workflows
