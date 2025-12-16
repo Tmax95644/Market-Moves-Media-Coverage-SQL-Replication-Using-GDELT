@@ -52,8 +52,10 @@ By reproducing the analysis in SQL and using an independent news dataset, this p
 
 - SQL (SQLite)  
 - Aggregate functions  
-- Window functions  
-- Date-based filtering and classification  
+- Conditional logic (`CASE`)  
+- Date-based filtering and joins  
+
+> SQL was chosen to demonstrate large-dataset aggregation, reproducibility, and analytical workflows outside a Python environment.
 
 ---
 
@@ -76,7 +78,7 @@ To enable a like-for-like comparison with the Python analysis, trading days were
 - **Large Loss:** ≤ −3%  
 - **Large Gain:** ≥ +3%  
 
-This ensured consistent definitions of “extreme” market moves across projects.
+A wider **±2.5% threshold** was also tested to increase sample size and assess result stability.
 
 ---
 
@@ -104,15 +106,42 @@ To validate the robustness of the original findings:
 
 ---
 
-## Key Findings
+## Results
 
-- Both **large gains and large losses** attracted substantially more news coverage than typical trading days  
-- Extreme positive and negative market moves received **broadly similar levels of media attention**  
-- Results were **directionally consistent** with the Python / MediaCloud analysis  
+### Key Findings
+- Large market gains often receive **equal or greater media coverage** than large losses  
+- News coverage peaks **on the same day** as extreme market moves  
+- Coverage declines steadily in the days following major losses  
+- Market extremity appears to drive attention more than negative direction  
 
 ---
 
-## Interpretation
+### Like-for-like comparison
+When comparing days with similar magnitude market moves:
+
+- For thresholds of **±2.5% and ±3%**, large gain days consistently showed **equal or higher average article counts** than large loss days  
+- Normal trading days had substantially lower coverage than either type of extreme move  
+
+This suggests that media attention increases with the **size of market movement**, regardless of direction.
+
+---
+
+### Lag analysis
+A 1–2 day lag analysis following large market losses showed:
+
+- Peak article counts on the **same day** as the market move  
+- A steady decline in coverage over subsequent days  
+
+This indicates that news coverage reacts immediately rather than with a delayed spike.
+
+---
+
+### Interpretation
+Contrary to the initial hypothesis that negative market moves dominate news coverage, the results suggest that **large positive rallies often attract comparable or greater attention**. This implies that **narrative significance and volatility** may be stronger drivers of media coverage than negativity alone.
+
+---
+
+## Interpretation (Cross-Project Summary)
 
 These findings reinforce the conclusion that **media coverage is driven more by market extremity and narrative significance** than by negative direction alone.
 
