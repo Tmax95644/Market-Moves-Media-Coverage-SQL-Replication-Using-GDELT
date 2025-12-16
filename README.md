@@ -1,66 +1,86 @@
-# Market News Coverage Asymmetry — SQL Replication (GDELT)
+Market News Coverage Asymmetry — SQL Replication (GDELT)
+Project Context
 
-## Project Context
+This project is a SQL-based replication of the following Python analysis:
 
-This project is a **SQL-based replication** of the following Python analysis:
+🔗 Python Project:
+Market News Coverage Across Bull and Bear Market Conditions — Python / MediaCloud
 
-🔗 **Python Project:**  
-[Market News Coverage Across Bull and Bear Market Conditions — Python / MediaCloud](https://github.com/Tmax95644/Market-News-Asymmetry-Analysis)
+The purpose of this project is to test whether the original findings remain consistent when:
 
-The goal is to validate whether the original findings hold when:
-- Using **a different news dataset**
-- Performing the analysis **entirely in SQL**
+Using an independent global news dataset
 
----
+Performing the full analysis entirely in SQL
 
-## Research Question
+Replicating the same classification logic and thresholds
 
-Do large negative market moves receive more news coverage than similarly large positive moves?
+This approach mirrors real-world analytical validation, where results are tested across tools and data sources.
 
----
+Research Question
 
-## Data Sources
+Do large negative market moves receive more news coverage than similarly large positive market moves?
 
-### Market Data
-- **S&P 500 daily returns**
-- Same return definitions and thresholds as the Python analysis
+Data Sources
+Market Data
 
-### News Data
-- **GDELT Global News Database**
-- Global coverage across a broader set of news sources
+S&P 500 daily price data
 
----
+Daily returns calculated using the same open-to-close methodology as the Python analysis
 
-## Tools
+Small market datasets are included in the repository
 
-- SQL (SQLite)
-- Aggregation and window functions
-- Date-based filtering and classification
+News Data
 
----
+GDELT Global News Database
 
-## Methodology
+Global news coverage aggregated at the daily level
 
-- Classified trading days using symmetric thresholds (e.g. ±3%)
-- Aggregated article counts for:
-  - Large gains
-  - Large losses
-- Compared mean and median coverage
-- Applied identical logic to the Python analysis for consistency
+Note:
+Raw GDELT CSV files are not included in this repository due to file size and data licensing constraints.
+See data/README.md for instructions on sourcing and reproducing the dataset locally.
 
----
+Tools
 
-## Key Findings
+SQL (SQLite)
 
-- Results were **directionally consistent** with the Python / MediaCloud analysis
-- Large market moves attracted more coverage than typical days
-- Positive and negative extremes showed **similar levels of attention**
+Aggregate functions
 
----
+Window functions
 
-## Conclusion
+Date-based filtering and classification
 
-This SQL replication strengthens confidence in the original findings by demonstrating that the results are:
-- Not tool-specific
-- Not dataset-specific
-- Reproducible using standard SQL workflows
+Methodology
+
+Classified trading days using symmetric return thresholds (e.g. ±3%)
+
+Aggregated daily article counts for:
+
+Large positive market moves
+
+Large negative market moves
+
+Compared mean and median article volumes across categories
+
+Applied identical classification logic to the Python analysis to ensure consistency
+
+Structured queries to allow full reproducibility once data is loaded
+
+Key Findings
+
+Results were directionally consistent with the Python / MediaCloud analysis
+
+Both large gains and large losses attracted significantly more coverage than normal trading days
+
+Extreme positive and negative market moves received similar levels of media attention
+
+Conclusion
+
+This SQL replication strengthens confidence in the original analysis by demonstrating that the findings are:
+
+Tool-independent (Python vs SQL)
+
+Dataset-independent (MediaCloud vs GDELT)
+
+Reproducible using standard SQL workflows
+
+The results suggest that market extremity, rather than direction alone, is a primary driver of financial news coverage.
