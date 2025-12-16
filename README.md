@@ -3,8 +3,9 @@ Project Context
 
 This project is a SQL-based replication of the following Python analysis:
 
-🔗 Python Project: https://github.com/Tmax95644/Market-News-Asymmetry-Analysis
-Market News Coverage Across Bull and Bear Market Conditions — Python / MediaCloud
+🔗 **Python Project:**  
+[Market News Coverage Across Bull and Bear Market Conditions — Python / MediaCloud](https://github.com/Tmax95644/Market-News-Asymmetry-Analysis)
+
 
 The purpose of this project is to test whether the original findings remain consistent when:
 
